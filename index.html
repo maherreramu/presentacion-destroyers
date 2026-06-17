@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Destroyers — HORECA Marketplace</title>
+  <!-- reveal.js 4 — CDN estable según skill html-slides -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/white.css">
+  <style>
+    /* ── Override reveal base font (tema white usa 40px, reducimos a 32px) ── */
+    .reveal { font-size: 32px !important; }
+
+    /* ── Base ────────────────────────────────────────────────────────────── */
+    * { box-sizing: border-box; }
+    .reveal,
+    .reveal .slides { background: #fff; color: #000; }
+    .reveal section {
+      font-family: -apple-system, 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #000;
+      text-align: left;
+      padding: 20px 44px 14px 44px;
+      height: 100%;
+      overflow: hidden;
+    }
+    .reveal h1, .reveal h2, .reveal h3 {
+      color: #000; margin: 0; text-transform: none;
+      font-family: -apple-system, 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    .reveal p, .reveal li { margin: 0; }
+    .reveal ul { list-style: none; padding: 0; }
+    .reveal .progress span { background: #000; }
+    .reveal .controls { color: #000; }
+
+    /* ── Typography ──────────────────────────────────────────────────────── */
+    .ey {                        /* eyebrow label */
+      font-size: 0.5em;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .hl {                        /* main headline */
+      font-size: 1.9em;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .hl-lg {                     /* large headline (slide 1) */
+      font-size: 2.5em;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .sub {
+      font-size: 0.75em;
+      color: #444;
+      line-height: 1.55;
+    }
+    hr.rule { border: none; border-top: 2px solid #000; margin: 10px 0; }
+
+    /* ── Stats ───────────────────────────────────────────────────────────── */
+    .srow  { display: flex; gap: 18px; margin: 12px 0; }
+    .sblk  { border-top: 3px solid #000; padding-top: 7px; flex: 1; }
+    .sn    { font-size: 2.8em; font-weight: 800; line-height: 1; }
+    .slbl  { font-size: 0.62em; color: #555; margin-top: 3px; line-height: 1.3; }
+    .sdtl  { font-size: 0.55em; color: #999; margin-top: 3px; line-height: 1.3; }
+
+    /* ── Two-column ──────────────────────────────────────────────────────── */
+    .c2    { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+    .ctit  {
+      font-size: 0.55em; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: #666;
+      border-bottom: 2px solid #000; padding-bottom: 4px; margin-bottom: 7px;
+    }
+
+    /* ── Tables ──────────────────────────────────────────────────────────── */
+    table.t { width: 100%; border-collapse: collapse; font-size: 0.6em; }
+    table.t th { background:#000; color:#fff; padding:5px 8px; text-align:left; font-weight:600; }
+    table.t td { padding:4px 8px; border-bottom:1px solid #ebebeb; vertical-align:middle; }
+    table.t tr:nth-child(even) td { background:#f9f9f9; }
+
+    /* ── Badges ──────────────────────────────────────────────────────────── */
+    .b     { display:inline-block; padding:2px 7px; border-radius:3px; font-size:0.8em; font-weight:700; white-space:nowrap; }
+    .bok   { background:#1a7a4a; color:#fff; }
+    .bref  { background:#b7950a; color:#000; }
+    .bno   { background:#c0392b; color:#fff; }
+    .bhi   { background:#000; color:#fff; }
+    .bmd   { background:#555; color:#fff; }
+    .blo   { background:#bbb; color:#000; }
+
+    /* ── Heatmap ─────────────────────────────────────────────────────────── */
+    .hm  { width:26px; height:26px; text-align:center; vertical-align:middle; font-weight:700; font-size:0.7em; }
+    .h0  { background:#f0f0f0; color:#bbb; }
+    .h1  { background:#d0d0d0; color:#555; }
+    .h2  { background:#777;    color:#fff; }
+    .h3  { background:#111;    color:#fff; }
+
+    /* ── Pills ───────────────────────────────────────────────────────────── */
+    .prow { display:flex; flex-direction:column; gap:4px; margin-top:8px; }
+    .pil  { background:#f4f4f4; border-radius:4px; padding:3px 10px; font-size:0.6em; }
+    .pil strong { font-size:1.08em; }
+
+    /* ── Mockup box ──────────────────────────────────────────────────────── */
+    .mbox {
+      border:2px solid #000; border-radius:8px;
+      display:flex; flex-direction:column; align-items:center;
+      justify-content:center; background:#f9f9f9; gap:6px; padding:16px;
+    }
+    .pfr {
+      width:90px; height:155px; border:2px dashed #bbb; border-radius:10px;
+      display:flex; align-items:center; justify-content:center; background:#fff;
+    }
+  </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 1 · GRUPO
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">Universidad Nacional de Colombia</span>
+  <h1 class="hl-lg">Destroyers</h1>
+  <p class="sub" style="margin-bottom:20px;">Validación de mercado — Sector HORECA</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 40px;max-width:400px;font-size:0.85em;">
+    <div><strong>Michael Betancourt</strong></div>
+    <div><strong>Julián Vargas</strong></div>
+    <div><strong>Jerónimo Gómez</strong></div>
+    <div><strong>Manuela Pardo</strong></div>
+    <div><strong>Mateo Herrera</strong></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 2 · PROBLEMA + IDEA
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">El Problema</span>
+  <h2 class="hl" style="font-size:1.8em;">
+    La reforma laboral destruyó 109.000 empleos en HORECA.<br>
+    Los que quedan no se consiguen a tiempo.
+  </h2>
+  <p class="sub">Un restaurante que necesita un mesero para el pico del almuerzo lo busca por WhatsApp entre conocidos. Tarda horas. El turno ya pasó.</p>
+  <hr class="rule">
+  <span class="ey">La Solución</span>
+  <p style="font-size:1.05em;font-weight:700;line-height:1.4;max-width:720px;">
+    App móvil: repositorio único de meseros y cocineros disponibles para turnos por horas.
+    El restaurante publica la necesidad. El trabajador acepta en minutos.
+  </p>
+  <p class="sub" style="margin-top:8px;font-size:0.7em;color:#888;">
+    Como Rappi para despacho de pedidos — pero para despacho de personas certificadas.
+  </p>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 3 · TRABAJO DE CAMPO
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">Metodología · Trabajo de Campo</span>
+  <h2 class="hl" style="font-size:1.8em;margin-bottom:12px;">4 instrumentos. 69 puntos de contacto.</h2>
+  <div class="srow">
+    <div class="sblk">
+      <div class="sn">45</div>
+      <div class="slbl">respuestas<br><strong>Encuesta web</strong></div>
+      <div class="sdtl">WhatsApp · Facebook · Instagram<br>21 trabajadores · 16 dueños · 8 consultores<br>45 filas × 16 variables</div>
+    </div>
+    <div class="sblk">
+      <div class="sn">12</div>
+      <div class="slbl">entrevistas<br><strong>Semiestructuradas</strong></div>
+      <div class="sdtl">60–90 min c/u · escenario neutral<br>Gerentes, founders, baristas,<br>trabajadores, proveedores SaaS</div>
+    </div>
+    <div class="sblk">
+      <div class="sn">2</div>
+      <div class="slbl">establecimientos<br><strong>Cliente incógnito</strong></div>
+      <div class="sdtl">Observación etnográfica<br>Sanfer (Teusaquillo)<br>Magallanes (Usaquén)</div>
+    </div>
+    <div class="sblk">
+      <div class="sn">10</div>
+      <div class="slbl">procesos<br><strong>SECOP II</strong></div>
+      <div class="sdtl">Contratación pública sector alimentos<br>BPM · experiencia · bioseguridad<br>Arquetipo institucional emergente</div>
+    </div>
+  </div>
+  <hr class="rule" style="margin:8px 0;">
+  <p style="font-size:0.58em;color:#999;">
+    Análisis cuantitativo: frecuencias, JTBD, sentimiento.
+    Cualitativo: 11 códigos temáticos sobre 12 transcripciones.
+    Observación: informes síntoma→causa→feature.
+  </p>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 3b · MOTIVADORES Y CANALES (charts del notebook)
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">Análisis Encuesta · ¿Qué mueve a las personas del sector?</span>
+  <h2 class="hl" style="font-size:1.45em;margin-bottom:10px;">
+    Los trabajadores quieren ingresos flexibles.<br>Los empleadores contratan por confianza, no por plataformas.
+  </h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;">
+    <div>
+      <div class="ctit">Motivadores para aceptar un turno rápido</div>
+      <img src="charts/barras_motivadores.png"
+           style="width:100%;border:1px solid #eee;border-radius:4px;display:block;">
+    </div>
+    <div>
+      <div class="ctit">Canales de confianza para contratar personal</div>
+      <img src="charts/treemap_canales_confianza.png"
+           style="width:100%;border:1px solid #eee;border-radius:4px;display:block;">
+    </div>
+  </div>
+  <p style="font-size:0.52em;color:#bbb;margin-top:6px;">
+    Fuente: Encuesta · 45 respuestas · análisis de frecuencias multiselect
+  </p>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 4 · ARQUETIPOS
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">Arquetipos · Escritorio vs. Campo</span>
+  <h2 class="hl" style="font-size:1.4em;margin-bottom:10px;">Asumimos 5. El campo confirmó 4 y reveló 4 que no existían.</h2>
+  <div class="c2">
+    <div>
+      <div class="ctit">Trabajo de escritorio — hipótesis previas</div>
+      <table class="t">
+        <thead><tr><th>Arquetipo</th><th>Veredicto</th><th>Evidencia de campo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Estudiante T1</strong></td><td><span class="b bok">✓ Confirmado</span></td><td>Pool de baches horarios (Sanfer)</td></tr>
+          <tr><td><strong>Estudiante T2</strong></td><td><span class="b bref">↺ Refinado</span></td><td>Disponibilidad &gt; afinidad gastronómica</td></tr>
+          <tr><td><strong>Bartender</strong></td><td><span class="b bref">↺ Refinado</span></td><td>Valor = profesionalización, no el oficio</td></tr>
+          <tr><td><strong>Mesero formal</strong></td><td><span class="b bref">↺ Refinado</span></td><td>Runner/ayudante por horas (Magallanes)</td></tr>
+          <tr><td><strong>Sommelier</strong></td><td><span class="b bno">✕ Descartado</span></td><td>Nicho de lujo sin representación</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="ctit">Arquetipos emergentes — solo visibles en campo</div>
+      <table class="t">
+        <thead><tr><th>Arquetipo emergente</th><th>Fuente</th><th>Ficha</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Comprador institucional</strong></td><td>SECOP II</td><td>Exige BPM, exp. mín., seguridad social</td></tr>
+          <tr><td><strong>Decisor de innovación</strong></td><td>Entrevistas</td><td>Contrata estandarización + datos</td></tr>
+          <tr><td><strong>Trabajador especializado</strong></td><td>Entrevistas</td><td>Escaso, caro de formar (≥6 meses)</td></tr>
+          <tr><td><strong>Proveedor Tech / SaaS</strong></td><td>Entrevistas</td><td>Aliado/competidor capa B del marketplace</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 4b · RADAR DE ARQUETIPOS (chart del notebook)
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">Análisis Transversal · Radar multi-arquetipo</span>
+  <h2 class="hl" style="font-size:1.45em;margin-bottom:8px;">
+    4 arquetipos validados. Necesidades completamente distintas.
+  </h2>
+  <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:22px;align-items:center;">
+    <img src="charts/radar_arquetipos.png"
+         style="width:100%;border:1px solid #eee;border-radius:4px;display:block;">
+    <div style="font-size:0.68em;display:flex;flex-direction:column;gap:12px;">
+      <div style="border-left:3px solid #000;padding-left:10px;">
+        <strong>Dueño operativo</strong><br>
+        <span style="color:#555;">Urgencia de staffing máxima. Baja madurez digital. Decide por costo y velocidad.</span>
+      </div>
+      <div style="border-left:3px solid #555;padding-left:10px;">
+        <strong>Decisor de innovación</strong><br>
+        <span style="color:#555;">Alto perfil de IA y escasez de talento tech. Compra estandarización, no cargos.</span>
+      </div>
+      <div style="border-left:3px solid #888;padding-left:10px;">
+        <strong>Comprador institucional</strong><br>
+        <span style="color:#555;">Cumplimiento normativo como eje central. BPM exigido en todos los contratos SECOP.</span>
+      </div>
+      <div style="border-left:3px solid #bbb;padding-left:10px;">
+        <strong>Trabajador especializado escaso</strong><br>
+        <span style="color:#555;">Alto valor del servicio humano. Difícil de hallar, caro de formar (≥6 meses).</span>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:0.52em;color:#bbb;margin-top:6px;">
+    Escala 0–10 · síntesis cualitativa de evidencia cruzada de campo
+  </p>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 5 · VALIDACIÓN — RED DE EVIDENCIA
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">Validación · Red de Evidencia Transversal</span>
+  <h2 class="hl" style="font-size:1.35em;margin-bottom:8px;">8 insights candidatos. 5 con respaldo en ≥3 fuentes independientes.</h2>
+
+  <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:20px;align-items:start;">
+
+    <!-- Heatmap -->
+    <div>
+      <table class="t" style="font-size:0.58em;">
+        <thead>
+          <tr>
+            <th style="min-width:190px;">Insight candidato</th>
+            <th class="hm" style="background:#000;color:#fff;">E</th>
+            <th class="hm" style="background:#000;color:#fff;">En</th>
+            <th class="hm" style="background:#000;color:#fff;">CI</th>
+            <th class="hm" style="background:#000;color:#fff;">S</th>
+            <th style="padding:5px 8px;background:#000;color:#fff;text-align:center;">#</th>
+            <th style="padding:5px 8px;background:#000;color:#fff;text-align:center;">Prioridad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cubrir turnos es lento y manual</td>
+            <td class="hm h3">3</td><td class="hm h1">1</td><td class="hm h3">3</td><td class="hm h0">—</td>
+            <td style="text-align:center;font-weight:700;">3</td>
+            <td style="text-align:center;"><span class="b bhi">ALTA</span></td>
+          </tr>
+          <tr>
+            <td>La confianza/referido domina la contratación</td>
+            <td class="hm h3">3</td><td class="hm h3">3</td><td class="hm h1">1</td><td class="hm h1">1</td>
+            <td style="text-align:center;font-weight:700;">4</td>
+            <td style="text-align:center;"><span class="b bhi">ALTA</span></td>
+          </tr>
+          <tr>
+            <td>Verificar experiencia es difícil</td>
+            <td class="hm h3">3</td><td class="hm h2">2</td><td class="hm h1">1</td><td class="hm h2">2</td>
+            <td style="text-align:center;font-weight:700;">4</td>
+            <td style="text-align:center;"><span class="b bhi">ALTA</span></td>
+          </tr>
+          <tr>
+            <td>Escasez y costo de mano de obra</td>
+            <td class="hm h2">2</td><td class="hm h3">3</td><td class="hm h2">2</td><td class="hm h1">1</td>
+            <td style="text-align:center;font-weight:700;">4</td>
+            <td style="text-align:center;"><span class="b bhi">ALTA</span></td>
+          </tr>
+          <tr>
+            <td>Faltan perfiles técnicos / especializados</td>
+            <td class="hm h1">1</td><td class="hm h3">3</td><td class="hm h1">1</td><td class="hm h3">3</td>
+            <td style="text-align:center;font-weight:700;">4</td>
+            <td style="text-align:center;"><span class="b bhi">ALTA</span></td>
+          </tr>
+          <tr>
+            <td>IA para demanda, merma y contenido</td>
+            <td class="hm h1">1</td><td class="hm h3">3</td><td class="hm h0">—</td><td class="hm h0">—</td>
+            <td style="text-align:center;font-weight:700;">2</td>
+            <td style="text-align:center;"><span class="b bmd">MEDIA</span></td>
+          </tr>
+          <tr>
+            <td>Cumplimiento normativo (BPM)</td>
+            <td class="hm h1">1</td><td class="hm h1">1</td><td class="hm h0">—</td><td class="hm h3">3</td>
+            <td style="text-align:center;font-weight:700;">2</td>
+            <td style="text-align:center;"><span class="b bmd">MEDIA</span></td>
+          </tr>
+          <tr>
+            <td>Upskilling vs. reemplazo</td>
+            <td class="hm h0">—</td><td class="hm h3">3</td><td class="hm h0">—</td><td class="hm h1">1</td>
+            <td style="text-align:center;font-weight:700;">2</td>
+            <td style="text-align:center;"><span class="b blo">BAJA</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.52em;color:#aaa;margin-top:5px;">
+        E=Encuesta · En=Entrevista · CI=Cliente incógnito · S=SECOP II &nbsp;|&nbsp; 0=ausente · 1=hipótesis · 2=moderado · 3=sólido
+      </p>
+    </div>
+
+    <!-- Red de afinidad — PNG del notebook -->
+    <div>
+      <div class="ctit" style="margin-bottom:6px;">Red de afinidad — hallazgos por fuente</div>
+      <img src="charts/network_afinidad.png"
+           style="width:100%;border:1px solid #eee;border-radius:4px;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 5b · TENDENCIA IA — SCATTER DE ENTREVISTADOS
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">Entrevistas · Posición en el eje IA — Automatizar vs. Toque Humano</span>
+  <h2 class="hl" style="font-size:1.4em;margin-bottom:8px;">
+    El sector no rechaza la IA — rechaza ser reemplazado por ella.
+  </h2>
+  <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:22px;align-items:center;">
+    <img src="charts/scatter_tension_ia.png"
+         style="width:100%;border:1px solid #eee;border-radius:4px;display:block;">
+
+    <div style="font-size:0.68em;display:flex;flex-direction:column;gap:10px;">
+
+      <!-- Stat destacada -->
+      <div style="background:#f4f4f4;border-radius:6px;padding:12px 14px;">
+        <div style="font-size:2.4em;font-weight:800;line-height:1;">10 / 12</div>
+        <div style="color:#555;margin-top:3px;">entrevistados se posicionan hacia el <strong>toque humano + upskilling</strong>, no hacia la automatización pura</div>
+      </div>
+
+      <!-- Quiénes son los 2 pro-automatización -->
+      <div style="padding:8px 12px;border:1px solid #ddd;border-radius:4px;font-size:0.9em;">
+        <strong>Los 2 pro-automatización (X negativo)</strong> son proveedores SaaS — Justo y Eatable Adventures. No son el mercado objetivo; son posibles aliados de la Capa B.
+      </div>
+
+      <!-- La tendencia -->
+      <div style="border-left:4px solid #000;padding-left:10px;">
+        <strong>La tendencia real:</strong> trabajadores, gerentes y asesores quieren aprender a usar IA para ser <em>más eficientes</em> — no para ser reemplazados. El upskilling en IA es la oportunidad de diferenciación del marketplace.
+      </div>
+
+      <!-- Cita directa -->
+      <div style="font-style:italic;color:#666;font-size:0.9em;border-top:1px solid #eee;padding-top:8px;">
+        "No dejarse reemplazar — aprender a usar las herramientas para que te hagan más valioso."<br>
+        <span style="font-style:normal;font-weight:700;color:#000;">— Erick Sierra, Gerente Colcafé</span>
+      </div>
+
+    </div>
+  </div>
+  <p style="font-size:0.52em;color:#bbb;margin-top:4px;">
+    Eje X: automatizar (−1) ↔ toque humano / upskilling (+1) · Eje Y: postura frente a la IA (defensiva 0 → optimista 10) · tamaño = extensión de la entrevista
+  </p>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 6 · CONCLUSIONES
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">Conclusiones · Dos ejes de acción</span>
+  <h2 class="hl" style="font-size:1.55em;margin-bottom:12px;">
+    El mercado tiene un cuello de botella dual:<br>capacitación escasa + conexión informal.
+  </h2>
+  <div class="c2">
+
+    <div style="border-left:4px solid #000;padding-left:14px;">
+      <div style="font-size:2.1em;font-weight:800;line-height:1;">8 / 12</div>
+      <div style="font-size:0.6em;color:#666;margin:3px 0 7px;">entrevistas: escasez de perfiles técnicos o necesidad de upskilling</div>
+      <p class="sub" style="font-size:0.68em;">
+        <strong>Factor Capacitación:</strong> Upskilling mínimo ≥6 meses. Faltan cocineros especializados, ingenieros de alimentos y perfiles de datos. El sector institucional exige certificación BPM recurrente.
+      </p>
+      <div class="prow">
+        <div class="pil"><strong>10/12</strong> entrevistados: upskilling &gt; automatización (scatter IA)</div>
+        <div class="pil"><strong>8/12</strong> entrevistas: falta de perfiles técnicos especializados</div>
+        <div class="pil"><strong>7/12</strong> entrevistas: necesidad de plataforma / SaaS</div>
+        <div class="pil"><strong>3 perfiles</strong> con brecha ALTA en oferta–demanda</div>
+      </div>
+    </div>
+
+    <div style="border-left:4px solid #000;padding-left:14px;">
+      <div style="font-size:2.1em;font-weight:800;line-height:1;">4 / 4</div>
+      <div style="font-size:0.6em;color:#666;margin:3px 0 7px;">fuentes confirman: contratación por referidos directos, no plataformas</div>
+      <p class="sub" style="font-size:0.68em;">
+        <strong>Factor Bolsa:</strong> Confianza/referido con respaldo sólido en todos los instrumentos. Turnos de refuerzo se cubren en horas o el establecimiento improvisa. Alta dependencia de métodos informales.
+      </p>
+      <div class="prow">
+        <div class="pil"><strong>Confianza/referido:</strong> sólido en 4 fuentes</div>
+        <div class="pil"><strong>Turnos lentos:</strong> sólido en Encuesta + Incógnito</div>
+        <div class="pil"><strong>Sin arquetipo de oferta</strong> para técnico cocina, ing. alimentos</div>
+        <div class="pil"><strong>Sommelier</strong> descartado — demanda real ≠ escritorio</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 7 · PROTOTIPO
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">Prototipo · App Móvil HORECA Marketplace</span>
+  <h2 class="hl" style="font-size:1.8em;margin-bottom:12px;">Del referido informal al match digital verificado.</h2>
+  <div class="c2" style="gap:28px;">
+
+    <div>
+      <p class="sub" style="font-size:0.72em;margin-bottom:12px;">
+        <strong>¿Qué hace el prototipo?</strong><br>
+        Conecta establecimientos HORECA que necesitan personal de refuerzo con trabajadores disponibles y verificados. El establecimiento publica un turno; el trabajador acepta; la plataforma gestiona credenciales BPM, reputación y pago.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:0.72em;">
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="font-size:1.4em;font-weight:800;line-height:1;min-width:38px;flex-shrink:0;">01</span>
+          <div><strong>Publicar turno</strong> — perfil, hora y tarifa</div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="font-size:1.4em;font-weight:800;line-height:1;min-width:38px;flex-shrink:0;">02</span>
+          <div><strong>Match automático</strong> — trabajadores disponibles y cercanos</div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="font-size:1.4em;font-weight:800;line-height:1;min-width:38px;flex-shrink:0;">03</span>
+          <div><strong>Perfil verificado</strong> — BPM, experiencia, calificaciones</div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="font-size:1.4em;font-weight:800;line-height:1;min-width:38px;flex-shrink:0;">04</span>
+          <div><strong>Pago y reputación</strong> — transacción + calificación bilateral</div>
+        </div>
+      </div>
+      <hr class="rule" style="margin-top:12px;">
+      <p style="font-size:0.58em;color:#aaa;">React Native · Node.js backend · autenticación BPM por foto de certificado</p>
+    </div>
+
+    <div class="mbox">
+      <div style="font-size:0.55em;color:#aaa;text-transform:uppercase;letter-spacing:.1em;">Vista previa del prototipo</div>
+      <div class="pfr">
+        <span style="font-size:0.5em;color:#ccc;text-align:center;line-height:1.7;">
+          Insertar<br>captura<br>o iframe<br>Figma aquí
+        </span>
+      </div>
+      <div style="font-size:0.55em;color:#ccc;">Figma · Prototipo funcional</div>
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: 'none',
+    backgroundTransition: 'none',
+    controls: true,
+    progress: true,
+    slideNumber: 'c/t',
+    center: true,
+    /* Dimensiones estándar del skill html-slides */
+    width: 960,
+    height: 700,
+    margin: 0.04,
+    minScale: 0.2,
+    maxScale: 2.0
+  });
+</script>
+</body>
+</html>
