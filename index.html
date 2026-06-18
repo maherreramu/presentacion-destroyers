@@ -7,16 +7,28 @@
   <!-- reveal.js 4 — CDN estable según skill html-slides -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/white.css">
+  <!-- Tipografía Lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     /* ── Override reveal base font (tema white usa 40px, reducimos a 32px) ── */
     .reveal { font-size: 32px !important; }
-
+    /* ── Paleta de marca: blanco · negro · dorado · verde ─────────────── */
+    :root {
+      --negro:     #111;
+      --dorado:    #C19A2E;   /* dorado de acento */
+      --dorado-tx: #9C7B17;   /* dorado legible sobre blanco */
+      --verde:     #1A7A4A;   /* verde de acento */
+      --verde-tx:  #0F5C36;   /* verde profundo para texto */
+      --crema:     #FAF9F6;
+    }
     /* ── Base ────────────────────────────────────────────────────────────── */
     * { box-sizing: border-box; }
     .reveal,
     .reveal .slides { background: #fff; color: #000; }
     .reveal section {
-      font-family: -apple-system, 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: 'Lato', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background: #fff;
       color: #000;
       text-align: left;
@@ -26,12 +38,13 @@
     }
     .reveal h1, .reveal h2, .reveal h3 {
       color: #000; margin: 0; text-transform: none;
-      font-family: -apple-system, 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: 'Lato', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
     .reveal p, .reveal li { margin: 0; }
     .reveal ul { list-style: none; padding: 0; }
-    .reveal .progress span { background: #000; }
-    .reveal .controls { color: #000; }
+    .reveal .progress span { background: linear-gradient(90deg, var(--verde), var(--dorado)); }
+    .reveal .controls { color: var(--dorado-tx); }
+    .reveal .slide-number { background: var(--negro); color: var(--dorado); }
 
     /* ── Typography ──────────────────────────────────────────────────────── */
     .ey {                        /* eyebrow label */
@@ -39,7 +52,7 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #888;
+      color: var(--dorado-tx);
       margin-bottom: 5px;
       display: block;
     }
@@ -74,7 +87,7 @@
     .ctit  {
       font-size: 0.55em; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.1em; color: #666;
-      border-bottom: 2px solid #000; padding-bottom: 4px; margin-bottom: 7px;
+      border-bottom: 2px solid var(--dorado); padding-bottom: 4px; margin-bottom: 7px;
     }
 
     /* ── Tables ──────────────────────────────────────────────────────────── */
@@ -85,8 +98,8 @@
 
     /* ── Badges ──────────────────────────────────────────────────────────── */
     .b     { display:inline-block; padding:2px 7px; border-radius:3px; font-size:0.8em; font-weight:700; white-space:nowrap; }
-    .bok   { background:#1a7a4a; color:#fff; }
-    .bref  { background:#b7950a; color:#000; }
+    .bok   { background:var(--verde); color:#fff; }
+    .bref  { background:var(--dorado); color:#111; }
     .bno   { background:#c0392b; color:#fff; }
     .bhi   { background:#000; color:#fff; }
     .bmd   { background:#555; color:#fff; }
@@ -126,6 +139,7 @@
 <section>
   <span class="ey">Universidad Nacional de Colombia</span>
   <h1 class="hl-lg">Destroyers</h1>
+  <div style="width:130px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--verde),var(--dorado));margin:2px 0 12px;"></div>
   <p class="sub" style="margin-bottom:20px;">Validación de mercado — Sector HORECA</p>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 40px;max-width:400px;font-size:0.85em;">
     <div><strong>Michael Betancourt</strong></div>
@@ -201,15 +215,15 @@
     Bolsa de empleo HORECA con dos canales: WhatsApp para quien contrata, web para quien busca trabajo y quiere formarse.
   </p>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px 20px;margin-top:10px;font-size:0.67em;">
-    <div style="border-left:3px solid #000;padding-left:10px;">
+    <div style="border-left:3px solid var(--verde);padding-left:10px;">
       <strong>WhatsApp — Establecimiento</strong><br>
       <span style="color:#555;">Publica el turno por mensaje. Recibe candidatos verificados. Confirma en segundos. Sin aprender una app nueva.</span>
     </div>
-    <div style="border-left:3px solid #555;padding-left:10px;">
+    <div style="border-left:3px solid var(--dorado);padding-left:10px;">
       <strong>Web — Bolsa Trabajador</strong><br>
       <span style="color:#555;">CV, experiencia y certificaciones registradas. Con o sin experiencia previa. Match con ofertas del sector.</span>
     </div>
-    <div style="border-left:3px solid #888;padding-left:10px;">
+    <div style="border-left:3px solid var(--negro);padding-left:10px;">
       <strong>Web — Upskilling IA</strong><br>
       <span style="color:#555;">Cursos de IA aplicada y certificaciones BPM. Cada logro mejora el perfil y sube el ranking en la bolsa.</span>
     </div>
@@ -491,8 +505,8 @@
   </h2>
   <div class="c2">
 
-    <div style="border-left:4px solid #000;padding-left:14px;">
-      <div style="font-size:2.1em;font-weight:800;line-height:1;">8 / 12</div>
+    <div style="border-left:4px solid var(--verde);padding-left:14px;">
+      <div style="font-size:2.1em;font-weight:800;line-height:1;color:var(--verde-tx);">8 / 12</div>
       <div style="font-size:0.6em;color:#666;margin:3px 0 7px;">entrevistas: escasez de perfiles técnicos o necesidad de upskilling</div>
       <p class="sub" style="font-size:0.68em;">
         <strong>Factor Capacitación:</strong> Upskilling mínimo ≥6 meses. Faltan cocineros especializados, ingenieros de alimentos y perfiles de datos. El sector institucional exige certificación BPM recurrente.
@@ -505,8 +519,8 @@
       </div>
     </div>
 
-    <div style="border-left:4px solid #000;padding-left:14px;">
-      <div style="font-size:2.1em;font-weight:800;line-height:1;">4 / 4</div>
+    <div style="border-left:4px solid var(--dorado);padding-left:14px;">
+      <div style="font-size:2.1em;font-weight:800;line-height:1;color:var(--dorado-tx);">4 / 4</div>
       <div style="font-size:0.6em;color:#666;margin:3px 0 7px;">fuentes confirman: contratación por referidos directos, no plataformas</div>
       <p class="sub" style="font-size:0.68em;">
         <strong>Factor Bolsa:</strong> Confianza/referido con respaldo sólido en todos los instrumentos. Turnos de refuerzo se cubren en horas o el establecimiento improvisa. Alta dependencia de métodos informales.
@@ -532,8 +546,8 @@
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;">
 
     <!-- Canal izquierdo: Establecimiento vía WhatsApp -->
-    <div style="border:2px solid #000;border-radius:6px;padding:10px 14px;">
-      <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#000;margin-bottom:6px;">
+    <div style="border:2px solid var(--verde);border-radius:6px;padding:10px 14px;">
+      <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--verde-tx);margin-bottom:6px;">
         📲 Establecimiento — vía WhatsApp
       </div>
       <p style="font-size:0.62em;color:#555;margin-bottom:10px;line-height:1.5;">
@@ -561,8 +575,8 @@
     </div>
 
     <!-- Canal derecho: Trabajador vía Web -->
-    <div style="border:2px solid #555;border-radius:6px;padding:10px 14px;">
-      <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#555;margin-bottom:6px;">
+    <div style="border:2px solid var(--dorado);border-radius:6px;padding:10px 14px;">
+      <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dorado-tx);margin-bottom:6px;">
         💻 Trabajador — vía Plataforma Web
       </div>
       <p style="font-size:0.62em;color:#555;margin-bottom:10px;line-height:1.5;">
@@ -598,6 +612,60 @@
 </section>
 
 <!-- ════════════════════════════════════════════════════════════
+     SLIDE 7b · PROTOTIPO DE LA SOLUCIÓN — CAPTURAS REALES
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">Prototipo · Así se ve la solución</span>
+  <h2 class="hl" style="font-size:0.9em;margin-bottom:10px;">
+    De la hipótesis al producto: <span style="color:var(--verde-tx);">Sazón</span>, el marketplace del talento gastronómico, ya está prototipado.
+  </h2>
+
+  <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:16px;align-items:start;">
+
+    <!-- Landing / página principal -->
+    <div>
+      <div class="ctit">Landing — conecta talento y negocios</div>
+      <div style="border:1px solid #e6e6e6;border-radius:8px;overflow:hidden;background:var(--crema);height:286px;display:flex;align-items:flex-start;justify-content:center;">
+        <img src="images/Website.png" alt="Página principal del marketplace Sazón"
+             style="width:100%;height:100%;object-fit:contain;object-position:top;display:block;">
+      </div>
+      <p style="font-size:0.55em;color:#555;margin-top:5px;line-height:1.4;">
+        Doble puerta de entrada — <strong style="color:var(--dorado-tx);">«Soy talento»</strong> y <strong style="color:var(--verde-tx);">«Soy un negocio»</strong> — ofertas que coinciden con el perfil.
+      </p>
+    </div>
+
+    <!-- Registro del negocio -->
+    <div>
+      <div class="ctit">Registro del negocio</div>
+      <div style="border:1px solid #e6e6e6;border-radius:8px;overflow:hidden;background:var(--crema);height:286px;display:flex;align-items:flex-start;justify-content:center;">
+        <img src="images/Perfil_Negocio.png" alt="Formulario de registro del negocio"
+             style="width:100%;height:100%;object-fit:contain;object-position:top;display:block;">
+      </div>
+      <p style="font-size:0.55em;color:#555;margin-top:5px;line-height:1.4;">
+        Valida que sea una empresa legal (NIT + RUT / Cámara de Comercio) antes de aprobar.
+      </p>
+    </div>
+
+    <!-- Perfil del talento -->
+    <div>
+      <div class="ctit">Perfil del talento</div>
+      <div style="border:1px solid #e6e6e6;border-radius:8px;overflow:hidden;background:var(--crema);height:286px;display:flex;align-items:flex-start;justify-content:center;">
+        <img src="images/Perfil_Usuario.png" alt="Formulario para crear el perfil profesional del talento"
+             style="width:100%;height:100%;object-fit:contain;object-position:top;display:block;">
+      </div>
+      <p style="font-size:0.55em;color:#555;margin-top:5px;line-height:1.4;">
+        Registro gratuito por rol (mesero, bartender, chef…) con certificados verificables.
+      </p>
+    </div>
+
+  </div>
+
+  <div style="margin-top:14px;background:var(--crema);border-left:4px solid var(--dorado);border-radius:0 4px 4px 0;padding:10px 16px;font-size:0.58em;color:#555;line-height:1.45;">
+    <strong style="color:var(--negro);">Prototipo navegable</strong> — construido sobre los 4 arquetipos validados en campo: perfiles con certificados, negocios verificados y alertas que coinciden con el rol.
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
      SLIDE 8 · LLAMADO A LA ACCIÓN
      ════════════════════════════════════════════════════════════ -->
 <section>
@@ -611,7 +679,7 @@
 
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px;">
 
-    <div style="border-top:4px solid #000;padding-top:10px;">
+    <div style="border-top:4px solid var(--verde);padding-top:10px;">
       <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#666;margin-bottom:5px;">Para establecimientos</div>
       <div style="font-size:0.68em;line-height:1.5;">
         ¿Tu restaurante, bar u hotel necesita personal de refuerzo verificado?<br>
@@ -619,7 +687,7 @@
       </div>
     </div>
 
-    <div style="border-top:4px solid #555;padding-top:10px;">
+    <div style="border-top:4px solid var(--dorado);padding-top:10px;">
       <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#666;margin-bottom:5px;">Para trabajadores</div>
       <div style="font-size:0.68em;line-height:1.5;">
         ¿Trabajas en el sector y quieres acceder a más turnos o certificarte en IA?<br>
@@ -627,7 +695,7 @@
       </div>
     </div>
 
-    <div style="border-top:4px solid #bbb;padding-top:10px;">
+    <div style="border-top:4px solid var(--negro);padding-top:10px;">
       <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#666;margin-bottom:5px;">Para aliados &amp; mentores</div>
       <div style="font-size:0.68em;line-height:1.5;">
         ¿Tienes experiencia en HRtech, edtech o HORECA?<br>
@@ -637,9 +705,9 @@
 
   </div>
 
-  <div style="background:#000;color:#fff;border-radius:6px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+  <div style="background:#000;color:#fff;border-radius:6px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-left:6px solid var(--dorado);">
     <div>
-      <div style="font-size:0.62em;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#bbb;margin-bottom:2px;">Contacto</div>
+      <div style="font-size:0.62em;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--dorado);margin-bottom:2px;">Contacto</div>
       <div style="font-size:0.78em;font-weight:700;">destroyers.horeca@gmail.com</div>
     </div>
     <div style="text-align:right;">

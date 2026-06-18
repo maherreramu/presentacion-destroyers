@@ -11,6 +11,7 @@ Presentación estática lista para GitHub Pages.
 ## Estructura
 
 - `index.html`: presentación principal.
-- `charts/`: imágenes usadas por las diapositivas.
+- `charts/`: gráficas generadas para las diapositivas de análisis.
+- `images/`: capturas del prototipo de la solución (landing, registro de negocio y perfil del talento).
 - `.github/workflows/pages.yml`: despliegue automático a GitHub Pages.
 # presentacion-destroyers
