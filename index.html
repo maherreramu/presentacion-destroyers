@@ -148,12 +148,25 @@
   <p class="sub">Un restaurante que necesita un mesero para el pico del almuerzo lo busca por WhatsApp entre conocidos. Tarda horas. El turno ya pasó.</p>
   <hr class="rule">
   <span class="ey">La Solución</span>
-  <p style="font-size:1.05em;font-weight:700;line-height:1.4;max-width:720px;">
-    App móvil: repositorio único de meseros y cocineros disponibles para turnos por horas.
-    El restaurante publica la necesidad. El trabajador acepta en minutos.
+  <p style="font-size:1.05em;font-weight:700;line-height:1.4;max-width:760px;">
+    Bolsa de empleo HORECA con dos canales: WhatsApp para quien contrata, web para quien busca trabajo y quiere formarse.
   </p>
-  <p class="sub" style="margin-top:8px;font-size:0.7em;color:#888;">
-    Como Rappi para despacho de pedidos — pero para despacho de personas certificadas.
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px 20px;margin-top:10px;font-size:0.67em;">
+    <div style="border-left:3px solid #000;padding-left:10px;">
+      <strong>WhatsApp — Establecimiento</strong><br>
+      <span style="color:#555;">Publica el turno por mensaje. Recibe candidatos verificados. Confirma en segundos. Sin aprender una app nueva.</span>
+    </div>
+    <div style="border-left:3px solid #555;padding-left:10px;">
+      <strong>Web — Bolsa Trabajador</strong><br>
+      <span style="color:#555;">CV, experiencia y certificaciones registradas. Con o sin experiencia previa. Match con ofertas del sector.</span>
+    </div>
+    <div style="border-left:3px solid #888;padding-left:10px;">
+      <strong>Web — Upskilling IA</strong><br>
+      <span style="color:#555;">Cursos de IA aplicada y certificaciones BPM. Cada logro mejora el perfil y sube el ranking en la bolsa.</span>
+    </div>
+  </div>
+  <p class="sub" style="margin-top:8px;font-size:0.65em;color:#888;">
+    El establecimiento no cambia su hábito — la plataforma llega donde ya trabaja.
   </p>
 </section>
 
@@ -464,47 +477,126 @@
      SLIDE 7 · PROTOTIPO
      ════════════════════════════════════════════════════════════ -->
 <section>
-  <span class="ey">Prototipo · App Móvil HORECA Marketplace</span>
-  <h2 class="hl" style="font-size:1.8em;margin-bottom:12px;">Del referido informal al match digital verificado.</h2>
-  <div class="c2" style="gap:28px;">
+  <span class="ey">Propuesta · Arquitectura de Canales</span>
+  <h2 class="hl" style="font-size:1.5em;margin-bottom:10px;">El establecimiento no aprende una app nueva. El trabajador tiene todas las herramientas en un solo lugar.</h2>
 
-    <div>
-      <p class="sub" style="font-size:0.72em;margin-bottom:12px;">
-        <strong>¿Qué hace el prototipo?</strong><br>
-        Conecta establecimientos HORECA que necesitan personal de refuerzo con trabajadores disponibles y verificados. El establecimiento publica un turno; el trabajador acepta; la plataforma gestiona credenciales BPM, reputación y pago.
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;">
+
+    <!-- Canal izquierdo: Establecimiento vía WhatsApp -->
+    <div style="border:2px solid #000;border-radius:6px;padding:14px;">
+      <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#000;margin-bottom:6px;">
+        📲 Establecimiento — vía WhatsApp
+      </div>
+      <p style="font-size:0.62em;color:#555;margin-bottom:10px;line-height:1.5;">
+        Restaurantes, bares y hoteles publican sus necesidades por WhatsApp. La plataforma gestiona el resto.
       </p>
-      <div style="display:flex;flex-direction:column;gap:8px;font-size:0.72em;">
-        <div style="display:flex;gap:12px;align-items:flex-start;">
-          <span style="font-size:1.4em;font-weight:800;line-height:1;min-width:38px;flex-shrink:0;">01</span>
-          <div><strong>Publicar turno</strong> — perfil, hora y tarifa</div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:0.62em;">
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-weight:800;min-width:20px;flex-shrink:0;">01</span>
+          <div>Escribe el turno por mensaje — rol, hora y tarifa</div>
         </div>
-        <div style="display:flex;gap:12px;align-items:flex-start;">
-          <span style="font-size:1.4em;font-weight:800;line-height:1;min-width:38px;flex-shrink:0;">02</span>
-          <div><strong>Match automático</strong> — trabajadores disponibles y cercanos</div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-weight:800;min-width:20px;flex-shrink:0;">02</span>
+          <div>Recibe candidatos verificados con perfil y calificaciones</div>
         </div>
-        <div style="display:flex;gap:12px;align-items:flex-start;">
-          <span style="font-size:1.4em;font-weight:800;line-height:1;min-width:38px;flex-shrink:0;">03</span>
-          <div><strong>Perfil verificado</strong> — BPM, experiencia, calificaciones</div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-weight:800;min-width:20px;flex-shrink:0;">03</span>
+          <div>Confirma con un botón — sin registro previo obligatorio</div>
         </div>
-        <div style="display:flex;gap:12px;align-items:flex-start;">
-          <span style="font-size:1.4em;font-weight:800;line-height:1;min-width:38px;flex-shrink:0;">04</span>
-          <div><strong>Pago y reputación</strong> — transacción + calificación bilateral</div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-weight:800;min-width:20px;flex-shrink:0;">04</span>
+          <div>Panel web opcional para gestión avanzada, historial y facturación</div>
         </div>
       </div>
-      <hr class="rule" style="margin-top:12px;">
-      <p style="font-size:0.58em;color:#aaa;">React Native · Node.js backend · autenticación BPM por foto de certificado</p>
+      <div style="margin-top:9px;font-size:0.55em;color:#aaa;">WhatsApp Business API · BSP Twilio / 360dialog</div>
     </div>
 
-    <div class="mbox">
-      <div style="font-size:0.55em;color:#aaa;text-transform:uppercase;letter-spacing:.1em;">Vista previa del prototipo</div>
-      <div class="pfr">
-        <span style="font-size:0.5em;color:#ccc;text-align:center;line-height:1.7;">
-          Insertar<br>captura<br>o iframe<br>Figma aquí
-        </span>
+    <!-- Canal derecho: Trabajador vía Web -->
+    <div style="border:2px solid #555;border-radius:6px;padding:14px;">
+      <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#555;margin-bottom:6px;">
+        💻 Trabajador — vía Plataforma Web
       </div>
-      <div style="font-size:0.55em;color:#ccc;">Figma · Prototipo funcional</div>
+      <p style="font-size:0.62em;color:#555;margin-bottom:10px;line-height:1.5;">
+        Con o sin experiencia. El perfil crece con cada turno completado y cada certificación obtenida.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:5px;font-size:0.62em;">
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-weight:800;min-width:20px;flex-shrink:0;">🅰️</span>
+          <div><strong>Bolsa:</strong> CV, experiencia, fotos de certificados, disponibilidad y ubicación</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-weight:800;min-width:20px;flex-shrink:0;">🅰️</span>
+          <div><strong>Match:</strong> ofertas que llegan según perfil; acepta con un clic</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-weight:800;min-width:20px;flex-shrink:0;">🅱️</span>
+          <div><strong>Upskilling IA:</strong> predicción de demanda, merma, contenido gastronómico</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-weight:800;min-width:20px;flex-shrink:0;">🅱️</span>
+          <div><strong>Certificaciones:</strong> BPM, manipulación de alimentos, cocina especializada — cada logro sube el ranking</div>
+        </div>
+      </div>
+      <div style="margin-top:9px;font-size:0.55em;color:#aaa;">Web + PWA · Node.js backend · autenticación por foto de certificado</div>
     </div>
 
+  </div>
+
+  <div style="margin-top:10px;background:#f4f4f4;border-radius:4px;padding:8px 14px;font-size:0.6em;color:#555;display:flex;gap:8px;align-items:center;">
+    <span style="font-weight:700;">Insight de campo →</span>
+    <span>El establecimiento ya opera por WhatsApp. Darle otra app es fricción que mata la adopción. La plataforma va a donde el dueño operativo ya está.</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SLIDE 8 · LLAMADO A LA ACCIÓN
+     ════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="ey">Próximos pasos · Únete al piloto</span>
+  <h2 class="hl" style="font-size:1.75em;margin-bottom:6px;">
+    El sector HORECA ya confirmó el problema.<br>Ahora necesitamos construir la solución juntos.
+  </h2>
+  <p class="sub" style="font-size:0.72em;margin-bottom:16px;">
+    Buscamos tres tipos de aliados para el piloto en Bogotá durante el segundo semestre de 2025:
+  </p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;">
+
+    <div style="border-top:4px solid #000;padding-top:10px;">
+      <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#666;margin-bottom:5px;">Para establecimientos</div>
+      <div style="font-size:0.68em;line-height:1.5;">
+        ¿Tu restaurante, bar u hotel necesita personal de refuerzo verificado?<br>
+        <strong>Sé uno de los 10 establecimientos piloto</strong> — opera por WhatsApp desde el primer día, sin aprender nada nuevo.
+      </div>
+    </div>
+
+    <div style="border-top:4px solid #555;padding-top:10px;">
+      <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#666;margin-bottom:5px;">Para trabajadores</div>
+      <div style="font-size:0.68em;line-height:1.5;">
+        ¿Trabajas en el sector y quieres acceder a más turnos o certificarte en IA?<br>
+        <strong>Regístrate en la lista de espera</strong> — primeros accesos con formación gratuita.
+      </div>
+    </div>
+
+    <div style="border-top:4px solid #bbb;padding-top:10px;">
+      <div style="font-size:0.58em;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#666;margin-bottom:5px;">Para aliados &amp; mentores</div>
+      <div style="font-size:0.68em;line-height:1.5;">
+        ¿Tienes experiencia en HRtech, edtech o HORECA?<br>
+        <strong>Conversemos</strong> — una reunión de 30 min puede cambiar la dirección del producto.
+      </div>
+    </div>
+
+  </div>
+
+  <div style="background:#000;color:#fff;border-radius:6px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+    <div>
+      <div style="font-size:0.62em;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#bbb;margin-bottom:2px;">Contacto</div>
+      <div style="font-size:0.78em;font-weight:700;">destroyers.horeca@unal.edu.co</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:0.58em;color:#aaa;margin-bottom:2px;">Universidad Nacional de Colombia</div>
+      <div style="font-size:0.7em;font-weight:700;">Gerencia y Gestión · 2025</div>
+    </div>
   </div>
 </section>
 
